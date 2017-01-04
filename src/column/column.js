@@ -1,11 +1,8 @@
 import React from 'react';
 import { Timeline,Carousel,Popover} from 'antd';
 import './column.css';
-function onPanelChange(value, mode) {
-  console.log(value);
-}
 
-const Column = React.createClass({
+const Column=React.createClass({
 	getInitialState(){
 		return {
 			data : [],
@@ -15,7 +12,7 @@ const Column = React.createClass({
 		}
 	},
 	componentWillMount(){
-		const carouselData = [
+		const carouselData=[
 			{
 				src : "./image/car-1.jpg",
 				key : "car-1",
@@ -46,22 +43,21 @@ const Column = React.createClass({
 		});
 	},
 	render (){
-		const This = this,
-			  timeline = this.state.data.map(function(item){
+		const timeline=this.state.data.map(function(item){
 			  	return (<Timeline.Item key={item.key}>{item.title} {item.time}</Timeline.Item>)
 			}),
-			  carData = this.state.carData.map(function(item,index){
+			  carData=this.state.carData.map(function(item,index){
 			 	return (
-		 			<div key = {item.key}>
+		 			<div key={item.key}>
 		 				<img src={require(item.src)}/>
 		 			</div>
 			 	)
 			}),
-			bool = this.state.carData.length,
-			json = bool?this.state.carData[this.state.carIndex]:false,
-			title = json?json.title:"",
-			des = json?json.des:"";
-			const content = (
+			bool=this.state.carData.length,
+			json=bool?this.state.carData[this.state.carIndex]:false,
+			title=json?json.title:"",
+			des=json?json.des:"";
+			const content=(
 			  <div>
 			    <p>{des}</p>
 			  </div>
@@ -89,7 +85,7 @@ const Column = React.createClass({
 		)
 	},
 	componentDidMount(){
-		const data = [
+		const data=[
 			{
 				title : "Create a services site",
 				time : "2016-09-01",

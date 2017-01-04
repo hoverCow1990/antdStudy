@@ -1,12 +1,9 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { 
   Router, 
   Route, 
-  IndexRoute,
   hashHistory,
-  IndexLink,
   IndexRedirect,
-  Link, 
 } from 'react-router';
 import { Row, Col } from 'antd';
 import SlideNav from "./slideNav/slideNav.js";
@@ -14,11 +11,12 @@ import Column from "./column/column.js";
 import Login from "./login/login.js";
 import Regist from "./regist/regist.js";
 import Staff from "./staff/staff.js";
+import FileCloud from './fileCloud/fileCloud.js';
 import '../node_modules/antd/dist/antd.css';
 import './App.css';
 
-var hasLogin = false,
-    loginData = {
+var hasLogin=false,
+    loginData={
           userName : null,
           num : null,
           job : null,
@@ -26,18 +24,8 @@ var hasLogin = false,
           lastLogin : null,
     }; 
 
-const Index = React.createClass({
-  render() {
-    return (
-        <div className="adminView">
-            {this.props.children}
-        </div>
-    )
-  }
-});
-
 //登录页面
-const LoginPage = React.createClass({
+const LoginPage=React.createClass({
   getInitialState() {
       return {
         hasLogin : hasLogin,
@@ -45,8 +33,8 @@ const LoginPage = React.createClass({
       }
   },
   forLogin(data) {
-      loginData = data;
-      hasLogin = true;
+      loginData=data;
+      hasLogin=true;
       this.setState({
         hasLogin : hasLogin,
         loginData : data,
@@ -54,18 +42,18 @@ const LoginPage = React.createClass({
   },
   render() {
     return(
-      <div className = "loginBox app-Box">
-        <Login hasLogin = {this.state.hasLogin} loginData = {this.state.loginData} forLogin = {this.forLogin}/>
+      <div className="loginBox app-Box">
+        <Login hasLogin={this.state.hasLogin} loginData={this.state.loginData} forLogin={this.forLogin}/>
       </div>
     )
   } 
 });
 
 //注册页面
-const RegistPage = React.createClass({
+const RegistPage=React.createClass({
     render() {
         return(
-          <div className = "registBox app-Box">
+          <div className="registBox app-Box">
             <Regist />
           </div>
       )
@@ -73,10 +61,10 @@ const RegistPage = React.createClass({
 });
 
 //忘记密码
-const StaffListPage = React.createClass({
+const StaffListPage=React.createClass({
   render (){
     return(
-      <div className = "staffBox app-Box">
+      <div className="staffBox app-Box">
           <Staff />
       </div>
     )
@@ -84,15 +72,16 @@ const StaffListPage = React.createClass({
 });
 
 //路由机制
-const Main = React.createClass({
+const Main=React.createClass({
     render() {
       return (
         <Router history={hashHistory}>
-          <Route path ="/">
+          <Route path="/">
             <IndexRedirect to="login"/>                           //跳转至某页面依赖IndexRedirect
-            <Route path = "login" component = {LoginPage}/>
-            <Route path = "regist" component = {RegistPage}/>
-            <Route path = "staffList" component = {StaffListPage}/>
+            <Route path="login" component={LoginPage}/>
+            <Route path="regist" component={RegistPage}/>
+            <Route path="staffList" component={StaffListPage}/>
+            <Route path="fileCloud(/**)" component={FileCloud}/>
           </Route>
         </Router>
       )
@@ -100,7 +89,7 @@ const Main = React.createClass({
 })
 
 //APP主要框架
-var App = React.createClass({
+var App=React.createClass({
   render() {
       return (
         <div className="MyAdmin">

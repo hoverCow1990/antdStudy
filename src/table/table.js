@@ -53,7 +53,6 @@ var MyTable = React.createClass({
             delete item.key;
             return item;
         })
-        console.log(arr[2])
         This.setState({date:arr});
       })
   }

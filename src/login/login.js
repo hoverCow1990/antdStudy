@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Form,Icon,Input,Button, Checkbox,Row,Col,message} from 'antd';
 import '../../node_modules/antd/dist/antd.css';
 import './login.css';
 
-const FormItem = Form.Item;
+const FormItem=Form.Item;
 
-const NormalLoginForm = Form.create()(React.createClass({
+const NormalLoginForm=Form.create()(React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.props.form.validateFields)
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        var val = values;
-          val.src = "http://img.dongqiudi.com/uploads/avatar/2014/10/20/8MCTb0WBFG_thumb_1413805282863.jpg";
-          val.num = "052124566";
-          val.job = "IT大佬";
-          val.lastLogin = "2016.12.28";
+        var val=values;
+          val.src="http://img.dongqiudi.com/uploads/avatar/2014/10/20/8MCTb0WBFG_thumb_1413805282863.jpg";
+          val.num="052124566";
+          val.job="IT大佬";
+          val.lastLogin="2016.12.28";
           this.props.forLog(val);
           message.success('登录成功',2);
       }
@@ -29,7 +29,7 @@ const NormalLoginForm = Form.create()(React.createClass({
     callback('请输入正确的名字!')
   },
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator }=this.props.form;
     return (
         <Form onSubmit={this.handleSubmit} className="login-form" action="">
           <FormItem>
@@ -64,14 +64,14 @@ const NormalLoginForm = Form.create()(React.createClass({
   },
 }));
 
-const Welcome = React.createClass({
+const Welcome=React.createClass({
     render() {
-      var info = this.props.info;
+      var info=this.props.info;
       return (
-        <div className = "loginSucess">
+        <div className="loginSucess">
           <Row >
             <Col span={8}>
-              <img src={info.src}/>
+              <img role="presentation" src={info.src}/>
             </Col>
             <Col span={14} offset={2}>
               <h2>欢迎您登录成功</h2>
@@ -88,14 +88,14 @@ const Welcome = React.createClass({
     }
 });
 
-const Login = React.createClass({
+const Login=React.createClass({
   render() {
-      let props = this.props,
-          dom = props.hasLogin?<Welcome info = {props.loginData}/>:<NormalLoginForm forLog = {props.forLogin}/>;
+      let props=this.props,
+          dom=props.hasLogin?<Welcome info={props.loginData}/>:<NormalLoginForm forLog={props.forLogin}/>;
       return (
         <div className="myLogin viewWrapper">
-          <div className = "login">
-            <div className = "loginWrapper">
+          <div className="login">
+            <div className="loginWrapper">
               {dom}
             </div>
           </div>

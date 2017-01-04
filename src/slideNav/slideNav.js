@@ -33,11 +33,8 @@ const SlideNav = React.createClass({
 			        <SubMenu key="sub2" title={<span><Icon type="bars" /><span>公司人员信息</span></span>}>
 			            <Menu.Item key="staffList">人员列表</Menu.Item>
 			          </SubMenu>
-			        <SubMenu key="sub3" title={<span><Icon type="file-text" /><span>公司报表</span></span>}>
-			            <Menu.Item key="day">日报表</Menu.Item>
-			            <Menu.Item key="month">月报表</Menu.Item>
-			            <Menu.Item key="week">周报表</Menu.Item>
-			            <Menu.Item key="year">年报表</Menu.Item>
+			        <SubMenu key="sub3" title={<span><Icon type="file-text" /><span>公司文件</span></span>}>
+			            <Menu.Item key="fileCloud">文件列表</Menu.Item>
 			        </SubMenu>
 			        <SubMenu key="sub4" title={<span><Icon type="pay-circle" /><span>公司财务信息管理</span></span>}>
 			            <Menu.Item key="pay">支出</Menu.Item>
